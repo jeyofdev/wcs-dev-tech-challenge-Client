@@ -1,11 +1,12 @@
 {
-  "name": "client",
-  "version": "0.1.0",
+  "name": "wcs-dev-tech-challenge-api",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "eslint-plugin-prettier": "^3.4.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -17,11 +18,20 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeyofdev/wcs-dev-tech-challenge-Client"
+  },
+  "keywords": [
+    "js",
+    "react"
+  ],
+  "author": "jeyofdev <jgregoire.pro@gmail.com>",
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "extends": "react-app"
+  },
+  "bugs": {
+    "url": "https://github.com/jeyofdev/wcs-dev-tech-challenge-Client/issues"
   },
   "browserslist": {
     "production": [
@@ -33,6 +43,33 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "eslint": "^7.28.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.3.1",
+    "pretty-quick": "^3.1.0",
+    "stylelint": "^13.13.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^22.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "./node_modules/.bin/eslint --max-warnings=0",
+      "pretty-quick --staged"
     ]
   }
 }
