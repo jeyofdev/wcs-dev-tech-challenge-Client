@@ -9,11 +9,24 @@ import './App.css';
 const App = () => {
   const [list, setList] = useState([]);
 
-  useEffect(() => {
+  const addNewMember = (memberName) => {
+    axios
+      .post('https://wcs-dev-tech-challenge-api.herokuapp.com/api/members', {
+        name: memberName,
+      })
+      .then((res) => res.data)
+      .then((data) => setList([...list, data[0]]));
+  };
+
+  const getAllMembers = () => {
     axios
       .get('https://wcs-dev-tech-challenge-api.herokuapp.com/api/members')
       .then((res) => res.data)
       .then((data) => setList(data));
+  };
+
+  useEffect(() => {
+    getAllMembers();
   }, []);
 
   return (
@@ -21,7 +34,7 @@ const App = () => {
       <Header />
 
       <main>
-        <AddMember />
+        <AddMember addMember={addNewMember} />
         {list.length > 0 && <ListMembers members={list} />}
       </main>
 
