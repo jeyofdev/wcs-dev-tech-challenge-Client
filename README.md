@@ -33,3 +33,7 @@ Don't forget to fill in the database connection information dans le .env
 ```env
 REACT_APP_BASE_URL=your_api_url
 ```
+
+## Production
+
+The projet is available on this [link](https://jeyofdev.github.io/wcs-dev-tech-challenge-Client/).
