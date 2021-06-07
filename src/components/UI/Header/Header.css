@@ -1,0 +1,10 @@
+header {
+  background: var(--color-gray-100);
+  text-align: center;
+  padding: 2em;
+}
+
+header img {
+  max-width: 96px;
+  margin-right: 0.25em;
+}
