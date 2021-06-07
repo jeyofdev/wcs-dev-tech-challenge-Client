@@ -1,0 +1,28 @@
+.member-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1.25em;
+  margin: 1em;
+}
+
+@media (min-width: 576px) {
+  .member-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .member-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.member-list-title:after {
+  content: '';
+  display: block;
+  margin: 1.5em auto;
+  background-color: var(--color-dark);
+  width: 100%;
+  max-width: 125px;
+  height: 2.5px;
+}

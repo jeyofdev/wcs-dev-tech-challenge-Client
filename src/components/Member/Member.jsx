@@ -1,24 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Member.css';
 
-const Member = ({ padding, children }) => {
-  const styles = {
-    padding,
-  };
-
-  return (
-    <div className="member-item" style={styles}>
-      {children}
-    </div>
-  );
-};
-
-Member.defaultProps = {
-  padding: '0.25em 0',
+const Member = ({ children }) => {
+  return <div className="member-item">{children}</div>;
 };
 
 Member.propTypes = {
-  padding: PropTypes.string,
   children: PropTypes.string.isRequired,
 };
 

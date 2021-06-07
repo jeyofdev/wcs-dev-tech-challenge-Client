@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Label = ({ htmlFor, children }) => {
+const Label = ({ htmlFor, size, children }) => {
   const styles = {
     display: 'block',
-    marginBottom: '0.5em',
+    marginBottom: '1.1em',
+    fontSize: size,
   };
 
   return (
@@ -14,8 +15,13 @@ const Label = ({ htmlFor, children }) => {
   );
 };
 
+Label.defaultProps = {
+  size: '1em',
+};
+
 Label.propTypes = {
   htmlFor: PropTypes.string.isRequired,
+  size: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.any]).isRequired,
 };
 
