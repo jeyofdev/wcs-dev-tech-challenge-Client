@@ -19,9 +19,7 @@ const AddMember = ({ addMember }) => {
 
     if (newMember.length >= 3) {
       axios
-        .get(
-          `https://wcs-dev-tech-challenge-api.herokuapp.com/api/members/${newMember}`
-        )
+        .get(`${process.env.REACT_APP_BASE_URL}/api/members/${newMember}`)
         .then((res) => res.data)
         .then((data) => {
           if (!data.length > 0) {
