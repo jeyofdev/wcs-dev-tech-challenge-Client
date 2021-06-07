@@ -5,9 +5,27 @@ import InputText from '../../../components/Form/Input/InputText/InputText';
 import Label from '../../../components/Form/Label/Label';
 import H2 from '../../../components/Text/Title/H2/H2';
 import './AddMember.css';
+import Alert from '../../../components/Alert/Alert';
 
 const AddMember = ({ addMember }) => {
   const [newMember, setNewMember] = useState('');
+  const [inputError, setInputError] = useState('');
+  const [inputSuccess, setInputSuccess] = useState('');
+
+  const validation = () => {
+    setInputError('');
+    setInputSuccess('');
+
+    if (newMember.length >= 3) {
+      addMember(newMember);
+      setInputError('');
+      setInputSuccess(`Le membre ${newMember} a été ajouté avec succès.`);
+    } else if (newMember.length <= 0) {
+      setInputError('Le nom du membre doit être renseigné.');
+    } else if (newMember.length < 3) {
+      setInputError('Le nom du membre doit comporté au moins 3 caractères.');
+    }
+  };
 
   const handleChange = (e) => {
     setNewMember(e.target.value);
@@ -15,14 +33,27 @@ const AddMember = ({ addMember }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addMember(newMember);
+    validation();
   };
 
   return (
     <>
       <H2 className="new-member-title">Ajouter un(e) Argonaute</H2>
+
       <form className="new-member-form" onSubmit={handleSubmit}>
+        {inputError !== '' && (
+          <Alert variant="danger" size=".9em">
+            {inputError}
+          </Alert>
+        )}
+        {inputSuccess !== '' && (
+          <Alert variant="success" size=".85em">
+            {inputSuccess}
+          </Alert>
+        )}
+
         <Label htmlFor="name">Nom de l&apos;Argonaute</Label>
+
         <div className="form-group">
           <InputText
             name="name"

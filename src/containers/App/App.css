@@ -9,7 +9,16 @@
   --color-primary: #f76c6c;
   --color-hover-primary-bg: #cc4242;
   --color-hover-primary-border: #b64747;
+
+  --color-alert-danger: #842029;
+  --color-alert-danger-bg: #f8d7da;
+  --color-alert-danger-border: #f5c2c7;
+
+  --color-alert-success: #0f5132;
+  --color-alert-success-bg: #d1e7dd;
+  --color-alert-success-border: #badbcc;
 }
+
 *,
 ::after,
 ::before {
