@@ -11,7 +11,7 @@ const App = () => {
 
   const addNewMember = (memberName) => {
     axios
-      .post('https://wcs-dev-tech-challenge-api.herokuapp.com/api/members', {
+      .post(`${process.env.REACT_APP_BASE_URL}/api/members`, {
         name: memberName,
       })
       .then((res) => res.data)
@@ -20,7 +20,7 @@ const App = () => {
 
   const getAllMembers = () => {
     axios
-      .get('https://wcs-dev-tech-challenge-api.herokuapp.com/api/members')
+      .get(`${process.env.REACT_APP_BASE_URL}/api/members`)
       .then((res) => res.data)
       .then((data) => setList(data));
   };
