@@ -27,3 +27,9 @@ $ yarn install
 # Run on dev mode
 $ yarn start
 ```
+
+Don't forget to fill in the database connection information dans le .env
+
+```env
+REACT_APP_BASE_URL=your_api_url
+```
