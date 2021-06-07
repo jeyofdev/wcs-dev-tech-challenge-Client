@@ -15,7 +15,7 @@
   height: 2.5px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 319px) {
   .form-group > input {
     margin-bottom: 1em;
   }

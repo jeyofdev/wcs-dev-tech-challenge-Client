@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import Button from '../../../components/Buttons/Button/Button';
 import InputText from '../../../components/Form/Input/InputText/InputText';
 import Label from '../../../components/Form/Label/Label';
@@ -17,9 +18,21 @@ const AddMember = ({ addMember }) => {
     setInputSuccess('');
 
     if (newMember.length >= 3) {
-      addMember(newMember);
-      setInputError('');
-      setInputSuccess(`Le membre ${newMember} a été ajouté avec succès.`);
+      axios
+        .get(
+          `https://wcs-dev-tech-challenge-api.herokuapp.com/api/members/${newMember}`
+        )
+        .then((res) => res.data)
+        .then((data) => {
+          if (!data.length > 0) {
+            addMember(newMember);
+            setInputSuccess(`Le membre ${newMember} a été ajouté avec succès.`);
+          } else {
+            setInputError('Ce membre existe déjà.');
+          }
+        });
+
+      setNewMember('');
     } else if (newMember.length <= 0) {
       setInputError('Le nom du membre doit être renseigné.');
     } else if (newMember.length < 3) {
@@ -59,6 +72,7 @@ const AddMember = ({ addMember }) => {
             name="name"
             className="form-control mr-1"
             placeholder="Charalampos"
+            value={newMember}
             handleChange={handleChange}
           />
           <Button submit>Envoyer</Button>
