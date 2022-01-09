@@ -20,24 +20,7 @@ The back-end part is available on this [repository](https://github.com/jeyofdev/
 
 ## Getting starting
 
-#### Tools
-
-Check that [`Nodejs`](https://nodejs.org/en/download/) is installed :
-
-```sh
-$ node -v
-```
-
-#### Dependencies
-
-Install all dependencies :
-
-```sh
-$ yarn
-$ npm install
-```
-
-## How To Use
+#### How To Use
 
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com) or [yarn](https://yarnpkg.com/)). From your command line:
 
@@ -52,7 +35,7 @@ $ yarn install
 $ yarn start
 ```
 
-### Environment
+#### Environment
 
 Create .env file based on .env.example and modify variables.
 
